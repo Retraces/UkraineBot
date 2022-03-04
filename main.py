@@ -3,17 +3,17 @@ import os
 from discord.ext.commands import Bot
 from libraries import tgnews,tgtime
 
-activity = discord.Game(name="!commands")
-client = Bot(command_prefix="!", activity=activity, status=discord.Status.online,help_command=None,case_insensitive=True)
+activity = discord.Game(name="!commands")  # Set bot game to "!commands"
+client = Bot(command_prefix="!", activity=activity, status=discord.Status.online,help_command=None,case_insensitive=True)  # Set bot status (online)
 
 
-@client.command()
+@client.command()   # Commands mostly follow this format, simply follows function.X, X being any sort of modifcation you'd like to change on the embed
 async def donate(ctx):
-    donate=discord.Embed(title="How to support the Ukrainian People! :flag_ua:", url="https://savelife.in.ua/en/donate/", description="Different ways to donate", color=0xFFFF00)
-    donate.set_thumbnail(url="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/800px-Flag_of_Ukraine.svg.png")
-    donate.add_field(name="Cryptocurrency", value="BTC — 357a3So9CbsNfBBgFYACGvxxS6tMaDoa1P\nETH — 0x165CD37b4C644C2921454429E7F9358d18A45e14\nUSDT (trc20) — TEFccmfQ38cZS1DTZVhsxKVDckA8Y6VfCy", inline=True)
-    donate.add_field(name="Websites :flag_ua:", value="https://savelife.in.ua/en/donate\nhttps://donatenow.wfp.org/ukraine-appeal/", inline=True)
-    donate.set_footer(text="Glory to Ukraine!")
+    donate=discord.Embed(title="How to support the Ukrainian People! :flag_ua:", url="https://savelife.in.ua/en/donate/", description="Different ways to donate", color=0xFFFF00)  # Set title, hyperlink if applicable, subtext, and embed colour
+    donate.set_thumbnail(url="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/800px-Flag_of_Ukraine.svg.png")  # Thumbnail at the top right
+    donate.add_field(name="Cryptocurrency", value="BTC — 357a3So9CbsNfBBgFYACGvxxS6tMaDoa1P\nETH — 0x165CD37b4C644C2921454429E7F9358d18A45e14\nUSDT (trc20) — TEFccmfQ38cZS1DTZVhsxKVDckA8Y6VfCy", inline=True)  # Contents of embed
+    donate.add_field(name="Websites :flag_ua:", value="https://savelife.in.ua/en/donate\nhttps://donatenow.wfp.org/ukraine-appeal/", inline=True)  # More content, seperated due to differing categories
+    donate.set_footer(text="Glory to Ukraine!")  # Default footer, makes it look a bit better tbh.
     await ctx.send(embed=donate)
 
 @client.command()
@@ -27,9 +27,9 @@ async def commands(ctx):
 @client.command()
 async def news(ctx):
     news=discord.Embed(title="Latest news from UkraineNOW :flag_ua:", description="https://t.me/ukrainenowenglish:", color=0xFFFF00)
-    news.add_field(name="**News**", value=tgnews(), inline=True)
+    news.add_field(name="**News**", value=tgnews(), inline=True)  # tgnews, located in libraries.py, grabs the latest message from the UkraineNOW (EN) Telegram
     news.set_thumbnail(url="https://cdn4.telesco.pe/file/nomsgLLU2J0A8VmU5KJs1BfrtimS1uGuTrw2LbDwe5QddqWgNmcZknotLBqLoFtL2Sa4zWSQkFSp37Mcjj0F9d1AFBBySuywOq8CqblqkeuwQ4HMphOfaEVJq2Iu4MjTiu2tsqDybh0xO67HNHplRsoXHd1k1iHVUkTW9gAnm14H3tBqsh0cFmwa7VEZSSJLzv1rXiVHYtGoimt2tMSrzdxQub0BXG8Rqt7919t8SEcc_EWeHbYGghZ2QrepB2EiULFjlcgeCK6bFPY86GPlr2x0EuFZJiU6mLvsuI4iIaN_FNHAll2Hd6cnhKSRmXklYsNmgkiRe5sMc0iAIB-9mQ.jpg")
-    news.set_footer(text=f"Posted at {tgtime()} UTC")
+    news.set_footer(text=f"Posted at {tgtime()} UTC")  # Time grabbed from the message, UTC format
     await ctx.send(embed=news)
 
 @client.command()
@@ -39,4 +39,4 @@ async def sources(ctx):
         sources.set_footer(text="Glory to Ukraine!")
         await ctx.send(embed=sources)
   
-client.run(os.getenv('TOKEN'))
+client.run(os.getenv('TOKEN'))  # Environment variable 'TOKEN', Discord bot API key
