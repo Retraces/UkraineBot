@@ -20,7 +20,7 @@
  
   <p align="center">!commands - List of the commands available </p>
   <p align="center">!news - Grabs the latest post from UkraineNOW (EN)</p>
-  <p align="center">donate - Lists of various donation methods</p>
+  <p align="center">!donate - Lists of various donation methods</p>
   <p align="center">!sources - Gives a list of credible sources</p>
   
  
