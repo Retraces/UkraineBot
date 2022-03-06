@@ -10,6 +10,7 @@ numpy = "^1.22.2"
 bs4 = "^0.0.1"
 discord = "^1.7.3"
 html5lib = "^1.1"
+requests = "^2.27.1"
 
 [tool.poetry.dev-dependencies]
 

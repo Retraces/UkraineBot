@@ -8,11 +8,8 @@ def tgnews():
   
   soup = BeautifulSoup(r.content, 'html5lib')
   messages = soup.find_all("div", class_="tgme_widget_message_text")  # Grab the latest message as "messages"
-  if len(messages) < 1024:  # Discord embeds have a limit of 1024 characters, Telegram messages can be quite large, we will simply exempt the message and provide the Telegram link
-    lastmessage = messages[len(messages)-1].text
-    return lastmessage
-  else:
-    lastmessage = "Message too large!"
+  lastmessage = messages[len(messages)-1].text
+  return lastmessage
 
 
 def tgtime():
