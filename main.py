@@ -19,7 +19,7 @@ async def donate(ctx):
                      value="BTC — 357a3So9CbsNfBBgFYACGvxxS6tMaDoa1P\nETH — 0x165CD37b4C644C2921454429E7F9358d18A45e14\nUSDT (trc20) — TEFccmfQ38cZS1DTZVhsxKVDckA8Y6VfCy",
                      inline=True)  # Contents of embed
     donate.add_field(name="Websites :flag_ua:",
-                     value="https://savelife.in.ua/en/donate\nhttps://donatenow.wfp.org/ukraine-appeal/",
+                     value="https://savelife.in.ua/en/donate\nhttps://donatenow.wfp.org/ukraine-appeal/\nhttps://redcross.org.ua/en/donate/\nThread of various donation methods: https://shorturl.at/qDRXY",
                      inline=True)  # More content, seperated due to differing categories
     donate.set_footer(text="Glory to Ukraine!") # Default footer, makes it look a bit better tbh.
     await ctx.send(embed=donate)
@@ -32,8 +32,7 @@ async def commands(ctx):
     commands.add_field(name="**Commands**",
                        value="**!donate** - Ways to donate to the Ukrainian people\n**!commands** - This.\n**!news** - Provides the latest message from UkraineNOW, a trusted news source\n**!sources** - List of reliable sources",
                        inline=True)
-    commands.set_thumbnail(
-        url="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Outline_of_Ukraine.svg/1200px-Outline_of_Ukraine.svg.png")
+    commands.set_thumbnail( url="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Outline_of_Ukraine.svg/1200px-Outline_of_Ukraine.svg.png")
     commands.set_footer(text="Glory to Ukraine!")
     await ctx.send(embed=commands)
 
