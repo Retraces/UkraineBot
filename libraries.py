@@ -1,4 +1,3 @@
-import html5lib  # Due to the nature of Telegram and how the formatting, using html5lib is a good idea
 import requests
 from bs4 import BeautifulSoup
 
