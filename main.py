@@ -6,9 +6,9 @@ from libraries import tgnews, tgtime
 activity = discord.Game(name="!commands")  # Set bot game to "!commands"
 client = Bot(command_prefix="!", activity=activity, status=discord.Status.online, help_command=None,
              case_insensitive=True)  # Set bot status (online)
-
-
+                           
 @client.command()  # Commands mostly follow this format, simply follows function.X, X being any sort of modifcation you'd like to change on the embed
+  
 async def donate(ctx):
     donate = discord.Embed(title="How to support the Ukrainian People! :flag_ua:",
                            url="https://savelife.in.ua/en/donate/", description="Different ways to donate",
@@ -33,7 +33,7 @@ async def commands(ctx):
                        value="**!donate** - Ways to donate to the Ukrainian people\n**!commands** - This.\n**!news** - Provides the latest message from UkraineNOW, a trusted news source\n**!sources** - List of reliable sources",
                        inline=True)
     commands.set_thumbnail( url="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Outline_of_Ukraine.svg/1200px-Outline_of_Ukraine.svg.png")
-    commands.set_footer(text="Glory to Ukraine!")
+    commands.set_footer(text=f"Glory to Ukraine! | Currently serving {len(client.guilds)} servers.")
     await ctx.send(embed=commands)
 
 
@@ -56,7 +56,6 @@ async def sources(ctx):
                       inline=True)
     sources.set_footer(text="Glory to Ukraine!")
     await ctx.send(embed=sources)
-
 
 # Environment variable 'TOKEN', Discord bot API key
 client.run(os.getenv('TOKEN'))
